@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classic Pasta Carbonara Recipe</title>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#recipe">Recipe</a></li>
+        <li><a href="#pricing">Cookbook Pricing</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content Area -->
+  <main>
+    
+    <!-- Introduction Section -->
+    <section id="about">
+      <h1>Classic Spaghetti Carbonara</h1>
+      <p>A simple, traditional Italian pasta dish made with eggs, cheese, cured pork, and black pepper.</p>
+      <img src="carbonara.jpg" alt="A freshly plated serving of Spaghetti Carbonara sprinkled with black pepper and Pecorino Romano cheese" width="400">
+    </section>
+
+    <!-- Recipe Section -->
+    <section id="recipe">
+      <h2>Ingredients &amp; Instructions</h2>
+      
+      <article>
+        <h3>Ingredients</h3>
+        <ul>
+          <li>400g Spaghetti</li>
+          <li>150g Pancetta or Guanciale</li>
+          <li>4 large egg yolks</li>
+          <li>50g Pecorino Romano cheese</li>
+          <li>Spices:
+            <ul>
+              <li>Freshly ground black pepper</li>
+              <li>Pinch of sea salt</li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Preparation Steps</h3>
+        <ol>
+          <li>Boil a large pot of salted water and cook the spaghetti until al dente.</li>
+          <li>Crisp the pancetta in a skillet over medium heat until golden brown.</li>
+          <li>Whisk egg yolks and grated Pecorino Romano together in a small bowl.</li>
+          <li>Combine pasta with pancetta, remove from heat, and quickly stir in egg mixture to create a creamy sauce.</li>
+        </ol>
+      </article>
+    </section>
+
+    <!-- Table Section -->
+    <section id="pricing">
+      <h2>Cookbook Plans</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Plan</th>
+            <th>Price</th>
+            <th>Features</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Digital Edition</td>
+            <td>$10</td>
+            <td>PDF Download &amp; Video Tutorials</td>
+          </tr>
+          <tr>
+            <td>Hardcover Edition</td>
+            <td>$25</td>
+            <td>Print Book + Digital Access</td>
+          </tr>
+          <tr>
+            <td>Chef's Bundle</td>
+            <td>$45</td>
+            <td>Print Book + Apron + Secret Sauce Recipes</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer id="contact">
+    <h2>Contact Us</h2>
+    
+    <!-- Contact Form without CC field -->
+    <form action="/submit" method="POST">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div>
+        <label for="topic">Topic</label>
+        <select id="topic" name="topic">
+          <option value="general">General Inquiry</option>
+          <option value="feedback">Recipe Feedback</option>
+          <option value="support">Support</option>
+        </select>
+      </div>
+
+      <fieldset>
+        <legend>How did you find this recipe?</legend>
+        <div>
+          <input type="radio" id="source-search" name="source" value="search">
+          <label for="source-search">Search Engine</label>
+        </div>
+        <div>
+          <input type="radio" id="source-social" name="source" value="social">
+          <label for="source-social">Social Media</label>
+        </div>
+        <div>
+          <input type="radio" id="source-friend" name="source" value="friend">
+          <label for="source-friend">Friend/Family</label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+      </div>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <p>&copy; 2026 iS HUB Recipe Portal. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
