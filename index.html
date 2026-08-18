@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Classic Pasta Carbonara</title>
+
+  <style>
+    /* =========================
+       GENERAL STYLES
+    ========================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      background-color: #f8f5f0;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* =========================
+       HEADER / NAVIGATION
+    ========================== */
+
+    header {
+      background-color: #222;
+      color: white;
+      padding: 18px 8%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+    }
+
+    nav a {
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #f4a261;
+    }
+
+    /* =========================
+       MAIN CONTENT
+    ========================== */
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    section {
+      margin-bottom: 70px;
+      scroll-margin-top: 100px;
+    }
+
+    /* =========================
+       HERO / ABOUT SECTION
+    ========================== */
+
+    #about {
+      min-height: 500px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    #about h1 {
+      font-size: 3.2rem;
+      color: #222;
+      margin-bottom: 20px;
+    }
+
+    #about p {
+      font-size: 1.15rem;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    #about img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    #about img:hover {
+      transform: scale(1.03);
+    }
+
+    /* =========================
+       SECTION HEADINGS
+    ========================== */
+
+    section h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      color: #222;
+      margin-bottom: 35px;
+    }
+
+    section h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: #e76f51;
+      margin: 10px auto;
+      border-radius: 5px;
+    }
+
+    /* =========================
+       RECIPE CARDS
+    ========================== */
+
+    #recipe {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    #recipe h2 {
+      grid-column: 1 / -1;
+    }
+
+    article {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    article:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    article h3 {
+      color: #e76f51;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    article ul,
+    article ol {
+      padding-left: 25px;
+    }
+
+    article li {
+      margin-bottom: 12px;
+    }
+
+    article ul ul {
+      margin-top: 10px;
+    }
+
+    /* =========================
+       PRICING TABLE
+    ========================== */
+
+    #pricing {
+      background-color: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    th,
+    td {
+      padding: 18px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #e76f51;
+      color: white;
+    }
+
+    tbody tr {
+      transition: background-color 0.3s ease;
+    }
+
+    tbody tr:hover {
+      background-color: #fff3ee;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* =========================
+       FOOTER / CONTACT
+    ========================== */
+
+    footer {
+      background-color: #222;
+      color: white;
+      padding: 60px 20px 25px;
+    }
+
+    footer h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: white;
+    }
+
+    form {
+      max-width: 700px;
+      margin: auto;
+      background-color: #2d2d2d;
+      padding: 35px;
+      border-radius: 15px;
+    }
+
+    form div {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #555;
+      border-radius: 8px;
+      background-color: #444;
+      color: white;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #e76f51;
+      box-shadow: 0 0 0 2px rgba(231, 111, 81, 0.2);
+    }
+
+    fieldset {
+      border: 1px solid #555;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    legend {
+      padding: 0 8px;
+      font-weight: bold;
+    }
+
+    fieldset div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    fieldset input {
+      width: auto;
+    }
+
+    fieldset label {
+      margin: 0;
+      font-weight: normal;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background-color: #e76f51;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease,
+                  transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #d85d40;
+      transform: translateY(-2px);
+    }
+
+    footer p {
+      text-align: center;
+      margin-top: 35px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    /* =========================
+       RESPONSIVE DESIGN
+    ========================== */
+
+    @media (max-width: 768px) {
+
+      header {
+        padding: 15px;
+      }
+
+      nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+      }
+
+      main {
+        padding: 40px 15px;
+      }
+
+      #about {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      #about h1 {
+        font-size: 2.3rem;
+      }
+
+      #about img {
+        height: 300px;
+      }
+
+      #recipe {
+        grid-template-columns: 1fr;
+      }
+
+      #pricing {
+        padding: 20px;
+        overflow-x: auto;
+      }
+
+      table {
+        min-width: 650px;
+      }
+
+      form {
+        padding: 25px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      #about h1 {
+        font-size: 2rem;
+      }
+
+      section h2 {
+        font-size: 1.8rem;
+      }
+
+      article {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#recipe">Recipe</a></li>
+        <li><a href="#pricing">Cookbook Pricing</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- =========================
+       MAIN CONTENT
+  ========================== -->
+
+  <main>
+
+    <!-- ABOUT / HERO -->
+
+    <section id="about">
+
+      <div>
+        <h1>Classic Spaghetti Carbonara</h1>
+
+        <p>
+          A simple, traditional Italian pasta dish made with eggs,
+          cheese, cured pork, and black pepper.
+        </p>
+      </div>
+
+      <div>
+        <img
+          src="carbonara.jpg"
+          alt="A freshly plated serving of Spaghetti Carbonara sprinkled with black pepper and Pecorino Romano cheese"
+        >
+      </div>
+
+    </section>
+
+
+    <!-- RECIPE -->
+
+    <section id="recipe">
+
+      <h2>Ingredients &amp; Instructions</h2>
+
+      <article>
+
+        <h3>Ingredients</h3>
+
+        <ul>
+          <li>400g Spaghetti</li>
+          <li>150g Pancetta or Guanciale</li>
+          <li>4 large egg yolks</li>
+          <li>50g Pecorino Romano cheese</li>
+
+          <li>
+            Spices:
+
+            <ul>
+              <li>Freshly ground black pepper</li>
+              <li>Pinch of sea salt</li>
+            </ul>
+
+          </li>
+        </ul>
+
+      </article>
+
+
+      <article>
+
+        <h3>Preparation Steps</h3>
+
+        <ol>
+          <li>
+            Boil a large pot of salted water and cook the spaghetti
+            until al dente.
+          </li>
+
+          <li>
+            Crisp the pancetta in a skillet over medium heat
+            until golden brown.
+          </li>
+
+          <li>
+            Whisk egg yolks and grated Pecorino Romano together
+            in a small bowl.
+          </li>
+
+          <li>
+            Combine pasta with pancetta, remove from heat,
+            and quickly stir in egg mixture to create a creamy sauce.
+          </li>
+        </ol>
+
+      </article>
+
+    </section>
+
+
+    <!-- PRICING -->
+
+    <section id="pricing">
+
+      <h2>Cookbook Plans</h2>
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Plan</th>
+            <th>Price</th>
+            <th>Features</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>Digital Edition</td>
+            <td>$10</td>
+            <td>PDF Download &amp; Video Tutorials</td>
+          </tr>
+
+          <tr>
+            <td>Hardcover Edition</td>
+            <td>$25</td>
+            <td>Print Book + Digital Access</td>
+          </tr>
+
+          <tr>
+            <td>Chef's Bundle</td>
+            <td>$45</td>
+            <td>Print Book + Apron + Secret Sauce Recipes</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER / CONTACT
+  ========================== -->
+
+  <footer id="contact">
+
+    <h2>Contact Us</h2>
+
+    <form action="/submit" method="POST">
+
+      <div>
+        <label for="name">Name</label>
+
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+          required
+        >
+      </div>
+
+
+      <div>
+        <label for="email">Email</label>
+
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        >
+      </div>
+
+
+      <div>
+        <label for="topic">Topic</label>
+
+        <select id="topic" name="topic">
+
+          <option value="general">
+            General Inquiry
+          </option>
+
+          <option value="feedback">
+            Recipe Feedback
+          </option>
+
+          <option value="support">
+            Support
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <fieldset>
+
+        <legend>How did you find this recipe?</legend>
+
+        <div>
+          <input
+            type="radio"
+            id="source-search"
+            name="source"
+            value="search"
+          >
+
+          <label for="source-search">
+            Search Engine
+          </label>
+        </div>
+
+
+        <div>
+          <input
+            type="radio"
+            id="source-social"
+            name="source"
+            value="social"
+          >
+
+          <label for="source-social">
+            Social Media
+          </label>
+        </div>
+
+
+        <div>
+          <input
+            type="radio"
+            id="source-friend"
+            name="source"
+            value="friend"
+          >
+
+          <label for="source-friend">
+            Friend/Family
+          </label>
+        </div>
+
+      </fieldset>
+
+
+      <div>
+
+        <label for="message">
+          Message
+        </label>
+
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          placeholder="Write your message..."
+        ></textarea>
+
+      </div>
+
+
+      <button type="submit">
+        Send Message
+      </button>
+
+    </form>
+
+
+    <p>
+      &copy; 2026 iS HUB Recipe Portal.
+      All rights reserved.
+    </p>
+
+  </footer>
+
+</body>
+</html>
